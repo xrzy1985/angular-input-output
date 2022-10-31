@@ -2,18 +2,19 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-child',
-  templateUrl: './child.component.html',
-  styleUrls: ['./child.component.css']
+  template: ``,
+  styleUrls: [],
 })
 export class ChildComponent implements OnInit {
-
   @Output() getEvent: EventEmitter<any> = new EventEmitter<string>();
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit(): void {
-    this.getEvent.emit('app-child message');
+    this.emitMessage();
   }
 
+  private emitMessage() {
+    this.getEvent.emit('app-child message');
+  }
 }
